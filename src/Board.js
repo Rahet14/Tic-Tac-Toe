@@ -37,11 +37,11 @@ class Board extends Component {
   }
 
   handleClick(i) {
-    if (this.state.won) {
+    let squares = this.state.squares.slice();
+
+    if (this.state.won || squares[i]) {
       return;
     }
-
-    let squares = this.state.squares.slice();
 
     const xIsNext = this.state.xIsNext;
     squares[i] = xIsNext ? "X" : "O";
